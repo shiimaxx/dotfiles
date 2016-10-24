@@ -1,0 +1,10 @@
+.DS_Store
+.vagrant
+*.swp
+.python-version
+.envrc
+py27
+venv
+*.pyc
+.ruby-version
+*.retry
