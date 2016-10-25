@@ -18,24 +18,20 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 if &compatible
   set nocompatible
 endif
-set runtimepath+=/Users/yoshima/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin('/Users/yoshima/.cache/dein')
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('ciaranm/inkpot')
-call dein#add('davidhalter/jedi-vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('plasticboy/vim-markdown')
-call dein#add('scrooloose/nerdtree')
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-call dein#end()
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  "call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  call dein#end()
+endif
 
 filetype plugin indent on
 syntax enable
