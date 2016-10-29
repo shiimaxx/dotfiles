@@ -2,15 +2,17 @@ setl autoindent
 setl backspace=2
 setl cursorline
 setl laststatus=2
-setl noexpandtab
+setl expandtab
 setl nohlsearch
 setl nu
 setl smartindent
 setl title
 
-au BufNewFile,BufRead *.py set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au BufNewFile,BufRead *.yml set tabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.md set expandtab shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.sh  set tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.py  set tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.rb  set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.md  set tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.yml set tabstop=2 softtabstop=2 shiftwidth=2
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
@@ -39,6 +41,9 @@ setl background=dark
 colorscheme inkpot
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+
 let g:inkpot_black_background = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 4
