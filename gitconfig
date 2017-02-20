@@ -1,6 +1,6 @@
 [user]
-    name = YOSHIMA Takatada
-    email = yoshima@heartbeats.jp
+    name = shiimaxx
+    email = yoshima@shiimaxx.com
 [push]
     default = current
 [color]
@@ -13,3 +13,5 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
     excludesfile = ~/.gitignore
+[ghq]
+    root = /Users/yoshima/repositories/src

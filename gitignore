@@ -8,3 +8,5 @@ venv
 *.pyc
 .ruby-version
 *.retry
+vagrant-sync
+.work
