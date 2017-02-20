@@ -8,11 +8,13 @@ setl nu
 setl smartindent
 setl title
 
-au BufNewFile,BufRead *.sh  set tabstop=4 softtabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.py  set tabstop=4 softtabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.rb  set tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.md  set tabstop=4 softtabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.yml set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.sh   set tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.py   set tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.go   set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.rb   set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.md   set tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.yml  set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.html set tabstop=2 softtabstop=2 shiftwidth=2
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
