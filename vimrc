@@ -50,6 +50,11 @@ let g:inkpot_black_background = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 4
 
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+let g:neosnippet#snippets_directory = '~/.vim/snippets'
+
 if dein#check_install()
   call dein#install()
 endif
