@@ -13,5 +13,6 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
     excludesfile = ~/.gitignore
+	editor = vim -c \"set fenc=utf-8\"
 [ghq]
     root = /Users/yoshima/repositories/src
