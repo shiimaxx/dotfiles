@@ -10,3 +10,4 @@ venv
 *.retry
 vagrant-sync
 .work
+tags
