@@ -24,6 +24,7 @@ call plug#end()
 set autoindent
 set backspace=2
 set cursorline
+set encoding=utf-8
 set expandtab
 set laststatus=2
 set nohlsearch
