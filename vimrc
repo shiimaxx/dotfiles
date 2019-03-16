@@ -1,61 +1,108 @@
-setl autoindent
-setl backspace=2
-setl cursorline
-setl laststatus=2
-setl expandtab
-setl nohlsearch
-setl nu
-setl smartindent
-setl title
+" vim-plug --------------------------------------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'itchyny/lightline.vim'
+Plug 'mattn/emmet-vim'
+Plug 'ryanolsonx/vim-lsp-javascript'
+Plug 'ryanolsonx/vim-lsp-typescript'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'previm/previm'
+call plug#end()
+
+
+" vim -------------------------------------------------------------------
+set autoindent
+set backspace=2
+set cursorline
+set expandtab
+set laststatus=2
+set nohlsearch
+set number
+set smartindent
+set title
+
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
 
 au BufNewFile,BufRead *.sh   set tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.py   set tabstop=4 softtabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.go   set noexpandtab tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.rb   set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.md   set tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.yml  set tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.yaml  set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.yaml set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html set tabstop=2 softtabstop=2 shiftwidth=2
-
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  let g:rc_dir    = expand('~/.vim/rc')
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  "call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-endif
+au BufNewFile,BufRead *.go   set tabstop=4 noexpandtab   shiftwidth=4
 
 filetype plugin indent on
-syntax enable
-setl background=dark
-colorscheme inkpot
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+syntax on
 
-let g:inkpot_black_background = 1
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_new_list_item_indent = 4
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-let g:neosnippet#snippets_directory = '~/.vim/snippets'
-
-if dein#check_install()
-  call dein#install()
+" vim-lsp ---------------------------------------------------------------
+if executable('bingo')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'bingo',
+      \ 'cmd': {server_info->['bingo', '-mode', 'stdio']},
+      \ 'whitelist': ['go'],
+      \ })
+  augroup END
 endif
+if executable('pyls')
+  " pip install python-language-server
+  augroup LspPython
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'pyls',
+      \ 'cmd': {server_info->['pyls']},
+      \ 'whitelist': ['python'],
+      \ })
+  augroup END
+endif
+if executable('typescript-language-server')
+  augroup LspTypeScript
+    au!
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
+    autocmd FileType typescript setlocal omnifunc=lsp#complete
+  augroup END
+endif
+
+let g:lsp_async_completion = 1
+
+" let g:lsp_log_verbose = 0
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+
+
+" asynccomplete ---------------------------------------------------------
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+"let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_remove_duplicates = 1
+let g:asyncomplete_smart_completion = 1
+
+" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+
+" previm ----------------------------------------------------------------
+let g:previm_open_cmd = 'open -a Vivaldi'
+
+
