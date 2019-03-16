@@ -11,3 +11,5 @@ venv
 vagrant-sync
 .work
 tags
+.vscode
+.idea
