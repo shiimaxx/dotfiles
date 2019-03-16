@@ -58,6 +58,7 @@ if executable('bingo')
       \ 'cmd': {server_info->['bingo', '-mode', 'stdio']},
       \ 'whitelist': ['go'],
       \ })
+    autocmd FileType go nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
   augroup END
 endif
 if executable('pyls')
