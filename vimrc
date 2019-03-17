@@ -48,6 +48,13 @@ au BufNewFile,BufRead *.go   set tabstop=4 noexpandtab   shiftwidth=4
 filetype plugin indent on
 syntax on
 
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-e> <End>
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
 
 " vim-lsp ---------------------------------------------------------------
 if executable('bingo')
