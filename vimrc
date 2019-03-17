@@ -17,6 +17,8 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'previm/previm'
+Plug 'scrooloose/nerdtree'
+Plug 'w0rp/ale'
 call plug#end()
 
 
@@ -55,6 +57,7 @@ inoremap <C-f> <Right>
 inoremap <C-e> <End>
 inoremap <C-d> <Del>
 inoremap <C-h> <BS>
+
 
 " vim-lsp ---------------------------------------------------------------
 if executable('bingo')
@@ -113,5 +116,9 @@ let g:asyncomplete_smart_completion = 1
 
 " previm ----------------------------------------------------------------
 let g:previm_open_cmd = 'open -a Vivaldi'
+
+
+" nerdtree --------------------------------------------------------------
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 
