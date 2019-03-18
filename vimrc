@@ -10,6 +10,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'mattn/emmet-vim'
+Plug 'mattn/sonictemplate-vim'
 Plug 'ryanolsonx/vim-lsp-javascript'
 Plug 'ryanolsonx/vim-lsp-typescript'
 Plug 'prabirshrestha/async.vim'
@@ -133,5 +134,11 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 let g:ale_open_list = 1
+
+let g:ale_fixers = {
+\   'go': ['goimports'],
+\}
+
+autocmd FileType go let g:ale_fix_on_save = 1
 
 
