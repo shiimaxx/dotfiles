@@ -12,6 +12,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/sonictemplate-vim'
 Plug 'ryanolsonx/vim-lsp-javascript'
+Plug 'ryanolsonx/vim-lsp-python'
 Plug 'ryanolsonx/vim-lsp-typescript'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -80,6 +81,7 @@ if executable('pyls')
       \ 'cmd': {server_info->['pyls']},
       \ 'whitelist': ['python'],
       \ })
+    autocmd FileType python nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
   augroup END
 endif
 if executable('typescript-language-server')
