@@ -15,4 +15,5 @@
     excludesfile = ~/.gitignore
 	editor = vim -c \"set fenc=utf-8\"
 [ghq]
-    root = /Users/yoshima/repositories/src
+    root = ~/repositories/src
+
