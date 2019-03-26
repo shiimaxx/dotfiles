@@ -13,3 +13,5 @@ vagrant-sync
 tags
 .vscode
 .idea
+*_darwin_amd64
+*_linux_amd64
