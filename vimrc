@@ -138,10 +138,17 @@ let g:ale_lint_on_enter = 0
 
 let g:ale_open_list = 1
 
+let g:ale_linters = {
+\   'python': ['flake8', 'pylint'],
+\}
+
 let g:ale_fixers = {
 \   'go': ['goimports'],
 \}
 
 autocmd FileType go let g:ale_fix_on_save = 1
+
+let g:ale_python_flake8_options = '--ignore=E121,E123,E126,E226,E24,E402,E704,W503,W504 --max-line-length=120'
+let g:ale_python_flake8_use_global = 1
 
 
