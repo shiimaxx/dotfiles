@@ -97,6 +97,16 @@ if executable('typescript-language-server')
     autocmd FileType typescript setlocal omnifunc=lsp#complete
   augroup END
 endif
+if executable('clangd')
+  augroup LspC
+    au!
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp'],
+        \ })
+  augroup END
+endif
 
 let g:lsp_async_completion = 1
 
