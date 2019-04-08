@@ -10,11 +10,13 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'itchyny/lightline.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/sonictemplate-vim'
 Plug 'ryanolsonx/vim-lsp-javascript'
 Plug 'ryanolsonx/vim-lsp-python'
 Plug 'ryanolsonx/vim-lsp-typescript'
+Plug 'pangloss/vim-javascript'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -43,6 +45,8 @@ colorscheme solarized
 au BufNewFile,BufRead *.sh   set tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.py   set tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.rb   set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.js   set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.ts   set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.md   set tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.yml  set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.yaml set tabstop=2 softtabstop=2 shiftwidth=2
@@ -92,9 +96,10 @@ if executable('typescript-language-server')
         \ 'name': 'typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ 'whitelist': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx'],
         \ })
-    autocmd FileType typescript setlocal omnifunc=lsp#complete
+    autocmd FileType javascript nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
+    autocmd FileType typescript nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
   augroup END
 endif
 
@@ -136,7 +141,7 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 
 let g:ale_linters = {
 \   'python': ['flake8', 'pylint'],
