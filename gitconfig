@@ -1,6 +1,9 @@
 [user]
     name = shiimaxx
     email = yoshima@shiimaxx.com
+[core]
+	editor = vim
+    excludesfile = ~/.gitignore
 [push]
     default = current
 [color]
@@ -11,9 +14,6 @@
     st = status
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-[core]
-    excludesfile = ~/.gitignore
-	editor = vim -c \"set fenc=utf-8\"
 [ghq]
-    root = ~/repositories/src
+    root = ~/go/src
 
