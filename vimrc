@@ -30,6 +30,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'itchyny/lightline.vim'
+Plug 'previm/previm'
+Plug 'tyru/open-browser.vim'
 call plug#end()
 
 
