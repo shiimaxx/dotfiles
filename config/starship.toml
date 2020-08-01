@@ -1,0 +1,14 @@
+add_newline = false
+
+[aws]
+disabled = true
+
+[package]
+disabled = true
+
+[golang]
+disabled = true
+
+[python]
+disabled = true
+
