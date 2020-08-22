@@ -42,3 +42,7 @@ let g:go_fmt_command = "goimports"
 " lightline.vim -----------------------------------------------------------
 let g:lightline = { 'colorscheme': 'jellybeans' }
 
+
+" vim-lsp -----------------------------------------------------------------
+nmap <C-]> :LspDefinition<CR>
+
