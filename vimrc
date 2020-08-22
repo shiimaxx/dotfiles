@@ -27,11 +27,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'itchyny/lightline.vim'
-Plug 'previm/previm'
-Plug 'tyru/open-browser.vim'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/vim-lsp'
 call plug#end()
 
 
