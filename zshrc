@@ -1,23 +1,28 @@
-# Emacs mode
-bindkey -e
+autoload -Uz compinit && compinit
 
-
-# Starship
 eval "$(starship init zsh)"
+eval "$(rbenv init - zsh)"
 
+alias awk=gawk
+alias date=gdate
+alias cut=gcut
+alias egrep=gegrep
+alias fgrep=gfgrep
+alias grep=ggrep
+alias head=ghead
+alias ls=gls
+alias sed=gsed
+alias tail=gtail
+alias tar=gtar
 
-# aliases
-alias tmuxs='tmux new -s $(basename $(pwd))'
 alias ll='ls -l'
 
+# Go
+export PATH=$PATH:~/go/bin
 
-# Golang
-export PATH=$PATH:/usr/local/go/bin:~/go/bin
-
-
-# peco
-bindkey '^]' peco-src
-function peco-src() {
+# ghq + peco
+bindkey '^]' ghq-peco
+function ghq-peco() {
   local src=$(ghq list --full-path | peco --query "$LBUFFER")
   if [ -n "$src" ]; then
     BUFFER="cd $src"
@@ -25,9 +30,8 @@ function peco-src() {
   fi
   zle -R -c
 }
-zle -N peco-src
+zle -N ghq-peco
 
-
-# env
-export EDITOR=vim
-
+# k8s
+alias k=kubectl
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
