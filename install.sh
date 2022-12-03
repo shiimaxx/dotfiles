@@ -12,7 +12,7 @@ rm -rf ${tempdir}
 
 ln -fs ~/work/github.com/shiimaxx/dotfiles/gitconfig ~/.gitconfig
 ln -fs ~/work/github.com/shiimaxx/dotfiles/gitignore ~/.gitignore
-ln -fs ~/work/github.com/shiimaxx/dotfiles/tmux.conf ~/tmux.conf
+ln -fs ~/work/github.com/shiimaxx/dotfiles/tmux.conf ~/.tmux.conf
 ln -fs ~/work/github.com/shiimaxx/dotfiles/vimrc ~/.vimrc
 ln -fs ~/work/github.com/shiimaxx/dotfiles/zsrc ~/.zsrc
 
