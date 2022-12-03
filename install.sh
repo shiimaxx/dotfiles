@@ -18,5 +18,5 @@ ln -fs ~/work/github.com/shiimaxx/dotfiles/tmux.conf ~/.tmux.conf
 ln -fs ~/work/github.com/shiimaxx/dotfiles/vimrc ~/.vimrc
 ln -fs ~/work/github.com/shiimaxx/dotfiles/zshrc ~/.zshrc
 
-mkdir -p ~/config
-ln -fs ~/work/github.com/shiimaxx/dotfiles/config/starship.toml ~/config/starship.toml
+mkdir -p ~/.config
+ln -fs ~/work/github.com/shiimaxx/dotfiles/config/starship.toml ~/.config/starship.toml
