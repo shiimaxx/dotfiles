@@ -5,6 +5,7 @@ curl -L --output ${tempdir}/master.zip https://github.com/shiimaxx/dotfiles/arch
 
 mkdir -p ~/work/github.com/shiimaxx
 cd $_
+rm -rf dotfiles-master dotfiles
 unzip ${tempdir}/master.zip -d .
 mv dotfiles-master dotfiles
 
