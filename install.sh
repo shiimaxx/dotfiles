@@ -12,6 +12,7 @@ mv dotfiles-master dotfiles
 rm -rf ${tempdir}
 
 ln -fs ~/work/github.com/shiimaxx/dotfiles/Brewfile ~/Brewfile
+ln -fs ~/work/github.com/shiimaxx/dotfiles/alacritty.yml ~/.alacritty.yml
 ln -fs ~/work/github.com/shiimaxx/dotfiles/gitconfig ~/.gitconfig
 ln -fs ~/work/github.com/shiimaxx/dotfiles/gitignore ~/.gitignore
 ln -fs ~/work/github.com/shiimaxx/dotfiles/tmux.conf ~/.tmux.conf
