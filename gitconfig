@@ -16,6 +16,7 @@
 	co = checkout
 	ci = commit
 	st = status
+	sw = switch
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [ghq]
