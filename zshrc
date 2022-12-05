@@ -1,8 +1,5 @@
 autoload -Uz compinit && compinit
 
-eval "$(starship init zsh)"
-eval "$(rbenv init - zsh)"
-
 alias awk=gawk
 alias date=gdate
 alias cut=gcut
@@ -16,6 +13,15 @@ alias tail=gtail
 alias tar=gtar
 
 alias ll='ls -l'
+
+
+eval "$(starship init zsh)"
+eval "$(rbenv init - zsh)"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Go
 export PATH=$PATH:~/go/bin
