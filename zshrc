@@ -35,3 +35,8 @@ zle -N ghq-peco
 # k8s
 alias k=kubectl
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+files=$(test -d ~/.zsh.d && ls ~/.zsh.d/*)
+for file in ${files}; do
+  source ${file}
+done
