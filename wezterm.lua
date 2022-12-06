@@ -5,4 +5,6 @@ return {
 
   font = wezterm.font 'HackGen35 Console',
   font_size = 14,
+
+  window_background_opacity = 0.5,
 }
