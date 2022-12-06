@@ -6,7 +6,7 @@ set encoding=utf-8
 set laststatus=2
 set shiftwidth=4
 set tabstop=4
-set title
+set notitle
 
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
