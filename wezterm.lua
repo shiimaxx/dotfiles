@@ -10,4 +10,7 @@ return {
   use_fancy_tab_bar = false,
 
   window_background_opacity = 1,
+
+  initial_cols = 140,
+  initial_rows = 50,
 }
