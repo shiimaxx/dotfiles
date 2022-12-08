@@ -11,6 +11,6 @@ ln -fs ~/work/github.com/shiimaxx/dotfiles/zshrc ~/.zshrc
 
 mkdir -p ~/.config
 ln -fs ~/work/github.com/shiimaxx/dotfiles/config/starship.toml ~/.config/starship.toml
-ln -fs ~/work/github.com/shiimaxx/dotfiles/config/peco ~/.config/peco
+ln -fs ~/work/github.com/shiimaxx/dotfiles/config/peco ~/.config/
 
 touch ~/.gitconfig_local
