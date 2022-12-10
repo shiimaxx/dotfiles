@@ -26,9 +26,7 @@ eval "$(pyenv init -)"
 # Go
 export PATH=$PATH:~/go/bin
 
-# ghq + peco
-bindkey '^]' ghq-peco
-function ghq-peco() {
+function _peco-ghq() {
   local src=$(ghq list --full-path | peco --query "$LBUFFER")
   if [ -n "$src" ]; then
     BUFFER="cd $src"
@@ -36,7 +34,19 @@ function ghq-peco() {
   fi
   zle -R -c
 }
-zle -N ghq-peco
+zle -N _peco-ghq
+bindkey '^]' _peco-ghq
+
+function _peco-git-switch() {
+  local branch=$(git branch | peco | sed -e 's/ //g' -e 's/^\*//')
+  if [ -n "${branch}" ]; then
+    BUFFER="git switch ${branch}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N _peco-git-switch
+bindkey '^[' _peco-git-switch
 
 # k8s
 alias k=kubectl
