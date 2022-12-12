@@ -46,7 +46,19 @@ function _peco-git-switch() {
   zle clear-screen
 }
 zle -N _peco-git-switch
-bindkey '^[' _peco-git-switch
+bindkey '^w' _peco-git-switch
+
+function _peco-git-fetch-remote() {
+  local remote_branch=$(git br -r | peco | sed -e 's/ //g' -e 's/^\*//' -e 's/->.*//')
+  if [ -n "${remote_branch}" ]; then
+    remote=$(echo ${remote_branch} | cut -d/ -f1)
+    branch=$(echo ${remote_branch} | cut -d/ -f2-)
+    BUFFER="git fetch ${remote} ${branch} && git switch ${branch}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N _peco-git-fetch-remote
 
 # k8s
 alias k=kubectl
