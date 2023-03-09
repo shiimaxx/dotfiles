@@ -20,6 +20,7 @@
 	sw = switch
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    fixup = rebase --autosquash
 [ghq]
 	root = ~/work
 [include]
