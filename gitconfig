@@ -10,12 +10,14 @@
 	default = current
 [pull]
 	ff = only
+	# rebase = true
 [color]
 	ui = true
 [alias]
 	co = checkout
 	ci = commit
 	cim = commit -m
+	civ = commit -v
 	st = status
 	sw = switch
 	br = branch
@@ -26,3 +28,5 @@
 [include]
 	path = ~/.gitconfig_secrets
 	path = ~/.gitconfig_local
+[http]
+	postBuffer = 10M
