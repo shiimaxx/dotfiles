@@ -14,17 +14,13 @@ which gtar > /dev/null && alias tar=gtar
 
 alias ll='ls -l'
 
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+export PATH=$PATH:~/go/bin
 
 eval "$(starship init zsh)"
-eval "$(rbenv init - zsh)"
+eval "$(mise activate zsh)"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Go
-export PATH=$PATH:~/go/bin
+alias code="code-insiders"
 
 function _peco-ghq() {
   local src=$(ghq list --full-path | peco --query "$LBUFFER")
@@ -68,3 +64,4 @@ files=$(test -d ~/.zsh.d && ls ~/.zsh.d/*)
 for file in ${files}; do
   source ${file}
 done
+

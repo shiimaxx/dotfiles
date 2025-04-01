@@ -1,9 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 
-brew "starship"
-brew "vim"
-brew "tmux"
+brew "aqua"
 
 brew "coreutils"
 brew "diffutils"
@@ -12,39 +10,13 @@ brew "grep"
 brew "gnu-sed"
 brew "gnu-tar"
 brew "gzip"
-
+brew "vim"
+brew "tmux"
 brew "git"
-brew "gh"
-brew "ghq"
-brew "git-secrets"
-
-brew "jq"
-brew "peco"
 brew "wget"
 brew "curl"
-brew "httpie"
-brew "ipcalc"
-
-brew "tfenv"
-brew "terraformer"
-
 brew "mysql"
-
-brew "go@1.19"
-
-brew "pyenv"
-
 brew "ruby-build"
-brew "rbenv"
-
-brew "nodenv"
-
-brew "awscli@2"
-
-brew "kubernetes-cli"
-brew "kubectx"
-brew "helm"
-brew "helmfile"
 
 tap "homebrew/cask-fonts"
 cask "font-hackgen"

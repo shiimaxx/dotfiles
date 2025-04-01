@@ -8,6 +8,7 @@ ln -fs ~/work/github.com/shiimaxx/dotfiles/tmux.conf ~/.tmux.conf
 ln -fs ~/work/github.com/shiimaxx/dotfiles/vimrc ~/.vimrc
 ln -fs ~/work/github.com/shiimaxx/dotfiles/wezterm.lua ~/.wezterm.lua
 ln -fs ~/work/github.com/shiimaxx/dotfiles/zshrc ~/.zshrc
+ln -fs ~/work/github.com/shiimaxx/dotfiles/aqua.yaml ~/aqua.yaml
 
 mkdir -p ~/.config
 ln -fs ~/work/github.com/shiimaxx/dotfiles/config/starship.toml ~/.config/starship.toml

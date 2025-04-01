@@ -4,8 +4,11 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	hooksPath = /Users/yoshima/.git/hooks
 [init]
 	templateDir = ~/.git-templates/git-secrets
+[branch]
+	sort = -committerdate
 [push]
 	default = current
 [pull]
